@@ -25,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         self.locationManager.delegate = self
         self.locationManager.startMonitoring(for: beaconRegion)
+        beaconRegion.notifyOnEntry = true
+        beaconRegion.notifyOnExit = true
+        locationManager.startMonitoring(for: beaconRegion)
+        locationManager.startRangingBeacons(in: beaconRegion)
         
         return true
     }
